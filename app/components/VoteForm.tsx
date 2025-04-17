@@ -17,8 +17,11 @@ export default function VoteForm() {
   const [addVote, { isLoading }] = useAddVoteMutation();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
+
+    const voteData = {...data, createdAt: new Date().toISOString()}
+
     try {
-      const result = await addVote(data).unwrap();
+      const result = await addVote(voteData).unwrap();
       if (result?.status === true) {
         toast.success("আপনার ভোট গ্রহণ করা হয়েছে!💚");
         reset();
