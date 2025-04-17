@@ -21,7 +21,7 @@ const LiveVoting = () => {
 
     return (
         <div className="relative overflow-hidden">
-            <div className="relative overflow-hidden bg-[#f0fdf4] border-b border-green-300 py-2 px-4 flex items-center gap-2">
+            <div className="relative overflow-hidden bg-[#f0fdf4] border-b border-green-300 py-2 pl-2 pr-4 flex items-center gap-2">
                 {/* Static Fixed Label */}
                 <span className="text-green-700 font-semibold whitespace-nowrap shrink-0">
                     সর্বশেষ ভোট:
