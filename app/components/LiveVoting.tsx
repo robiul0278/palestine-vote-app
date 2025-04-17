@@ -24,14 +24,14 @@ const LiveVoting = () => {
             <div className="relative overflow-hidden bg-[#f0fdf4] border-b border-green-300 py-2 px-4 flex items-center gap-2">
                 {/* Static Fixed Label */}
                 <span className="text-green-700 font-semibold whitespace-nowrap shrink-0">
-                    সর্বশেষ ভোট দিয়েছেন:
+                    সর্বশেষ ভোট:
                 </span>
 
                 {/* Marquee Text */}
                 <div className="overflow-hidden w-full">
                     <motion.div
                         className="whitespace-nowrap inline-block text-green-800 font-medium"
-                        animate={{ x: ['100%', '-100%'] }}
+                        animate={{ x: ['20%', '-100%'] }}
                         transition={{
                             repeat: Infinity,
                             duration: 20,
@@ -39,7 +39,7 @@ const LiveVoting = () => {
                         }}
                     >
                         {
-                            data?.data.slice(0,2).map((item: Vote, index: number) => (
+                            data?.data.slice(0,3).map((item: Vote, index: number) => (
                                 <span key={index} className="inline-flex items-center text-sm">
                                     <span className="mx-3">নাম: {item.name}</span>
                                     <span className="mx-3">বয়স: {item.age}</span>
