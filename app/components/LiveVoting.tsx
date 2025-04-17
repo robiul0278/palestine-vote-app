@@ -11,7 +11,7 @@ const LiveVoting = () => {
     return (
         <div>
             <h1 className="text-2xl pt-5 pb-2 font-semibold text-[#1a7034] text-center">লাইভ ভোটিং চলছে</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-5">
                 <div className="border border-green-400 p-4 rounded-lg flex flex-col items-center justify-around bg-white text-black shadow-sm">
                     <Image
                         src="https://flagcdn.com/w320/ps.png"
