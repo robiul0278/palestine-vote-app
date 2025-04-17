@@ -13,12 +13,12 @@ interface FormData {
 }
 
 export default function VoteForm() {
-  const { register, handleSubmit, reset } = useForm<FormData>();
+  const { register,  formState: { errors }, handleSubmit, reset } = useForm<FormData>();
   const [addVote, { isLoading }] = useAddVoteMutation();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
 
-    const voteData = {...data, createdAt: new Date().toISOString()}
+    const voteData = { ...data, createdAt: new Date().toISOString() }
 
     try {
       const result = await addVote(voteData).unwrap();
@@ -56,7 +56,8 @@ export default function VoteForm() {
             <input
               type="radio"
               value="Palestine"
-              {...register("vote")}
+              {...register("vote", { required: "যে কোনো একটি ভোট সিলেক্ট করুন !" })}
+
               className="peer hidden"
             />
             <div className="border p-3 rounded-lg flex justify-center items-center flex-col hover:shadow-md transition-all peer-checked:border-green-600 peer-checked:ring-2 peer-checked:ring-green-500">
@@ -68,7 +69,8 @@ export default function VoteForm() {
             <input
               type="radio"
               value="Neutral"
-              {...register("vote")}
+              {...register("vote", { required: "যে কোনো একটি ভোট সিলেক্ট করুন !" })}
+
               className="peer hidden"
             />
             <div className="border p-2 rounded-lg flex justify-center items-center hover:shadow-md transition-all peer-checked:border-yellow-500 peer-checked:ring-2 peer-checked:ring-yellow-300 text-3xl">
@@ -80,13 +82,17 @@ export default function VoteForm() {
             <input
               type="radio"
               value="Israel"
-              {...register("vote")}
+              {...register("vote", { required: "যে কোনো একটি ভোট সিলেক্ট করুন !" })}
+
               className="peer hidden"
             />
             <div className="border p-2 rounded-lg flex justify-center items-center flex-col hover:shadow-md transition-all peer-checked:border-red-600 peer-checked:ring-2 peer-checked:ring-red-400">
               <Image src="https://flagcdn.com/w320/il.png" width={50} height={50} alt="Israel" />
             </div>
           </label>
+          {errors.vote && (
+            <p className="text-red-500 text-sm">{errors.vote.message}</p>
+          )}
         </div>
 
         <button
