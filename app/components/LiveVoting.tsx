@@ -39,11 +39,11 @@ const LiveVoting = () => {
                         }}
                     >
                         {
-                            data?.data.slice(0,1).map((item: Vote, index: number) => (
-                                <span key={index} className="inline-flex items-center">
+                            data?.data.slice(0,2).map((item: Vote, index: number) => (
+                                <span key={index} className="inline-flex items-center text-sm">
                                     <span className="mx-3">নাম: {item.name}</span>
                                     <span className="mx-3">বয়স: {item.age}</span>
-                                    <span className="mx-3">সমর্থন করেছেন: {item.vote}</span>
+                                    <span className="mx-3">সমর্থন করেছেন: {item.vote} |</span>
                                 </span>
                             ))
                         }
